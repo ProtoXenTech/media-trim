@@ -295,6 +295,20 @@ class Media_Trim_Admin {
 					</div>
 				</div>
 			</div>
+
+			<div class="mtrim-suite-footer">
+				<div class="mtrim-suite-text">
+					<strong><?php esc_html_e( 'ProtoXen Performance Suite', 'media-trim' ); ?></strong>
+					<span><?php esc_html_e( 'Elevate your WordPress experience with zero bloat.', 'media-trim' ); ?></span>
+				</div>
+				<div class="mtrim-suite-links">
+					<a href="<?php echo esc_url( admin_url( 'themes.php?page=login-themer' ) ); ?>"><?php esc_html_e( 'Login Themer', 'media-trim' ); ?></a>
+					<span class="mtrim-dot">•</span>
+					<a href="<?php echo esc_url( admin_url( 'options-general.php?page=comment-control' ) ); ?>"><?php esc_html_e( 'Comment Control', 'media-trim' ); ?></a>
+					<span class="mtrim-dot">•</span>
+					<a href="https://protoxen.com/" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'ProtoXen.com', 'media-trim' ); ?></a>
+				</div>
+			</div>
 		</div>
 		<?php
 	}
