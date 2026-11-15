@@ -220,6 +220,26 @@ class Media_Trim_Admin {
 								<span class="dashicons dashicons-shield"></span> <?php esc_html_e( 'Move Selected to Quarantine', 'media-trim' ); ?>
 							</button>
 						</div>
+
+						<!-- FILTER & SORT CONTROLS -->
+						<div class="mtrim-controls-bar">
+							<div class="mtrim-filter-group">
+								<button type="button" class="mtrim-filter-pill active" data-filter="all"><?php esc_html_e( 'All', 'media-trim' ); ?></button>
+								<button type="button" class="mtrim-filter-pill" data-filter="images"><?php esc_html_e( 'Images', 'media-trim' ); ?></button>
+								<button type="button" class="mtrim-filter-pill" data-filter="docs"><?php esc_html_e( 'PDFs & Docs', 'media-trim' ); ?></button>
+								<button type="button" class="mtrim-filter-pill" data-filter="media"><?php esc_html_e( 'Audio / Video', 'media-trim' ); ?></button>
+							</div>
+							<div class="mtrim-sort-group">
+								<label for="mtrim_sort_select" class="screen-reader-text"><?php esc_html_e( 'Sort Media', 'media-trim' ); ?></label>
+								<select id="mtrim_sort_select" class="mtrim-select">
+									<option value="size-desc"><?php esc_html_e( 'Largest Size First', 'media-trim' ); ?></option>
+									<option value="size-asc"><?php esc_html_e( 'Smallest Size First', 'media-trim' ); ?></option>
+									<option value="id-desc"><?php esc_html_e( 'Newest Upload First', 'media-trim' ); ?></option>
+									<option value="id-asc"><?php esc_html_e( 'Oldest Upload First', 'media-trim' ); ?></option>
+								</select>
+							</div>
+						</div>
+
 						<div class="mtrim-table-summary" id="mtrim_selection_summary">
 							<?php esc_html_e( 'Run a scan to detect unused media.', 'media-trim' ); ?>
 						</div>

@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-11-15T12:23:35+06:00\n"
+"POT-Creation-Date: 2026-11-15T12:28:58+06:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: media-trim\n"
@@ -141,7 +141,7 @@ msgid "Quarantine Staging"
 msgstr ""
 
 #: includes/class-media-trim-admin.php:218
-#: includes/class-media-trim-admin.php:243
+#: includes/class-media-trim-admin.php:263
 msgid "Select All"
 msgstr ""
 
@@ -149,39 +149,75 @@ msgstr ""
 msgid "Move Selected to Quarantine"
 msgstr ""
 
-#: includes/class-media-trim-admin.php:224
+#: includes/class-media-trim-admin.php:227
+msgid "All"
+msgstr ""
+
+#: includes/class-media-trim-admin.php:228
+msgid "Images"
+msgstr ""
+
+#: includes/class-media-trim-admin.php:229
+msgid "PDFs & Docs"
+msgstr ""
+
+#: includes/class-media-trim-admin.php:230
+msgid "Audio / Video"
+msgstr ""
+
+#: includes/class-media-trim-admin.php:233
+msgid "Sort Media"
+msgstr ""
+
+#: includes/class-media-trim-admin.php:235
+msgid "Largest Size First"
+msgstr ""
+
+#: includes/class-media-trim-admin.php:236
+msgid "Smallest Size First"
+msgstr ""
+
+#: includes/class-media-trim-admin.php:237
+msgid "Newest Upload First"
+msgstr ""
+
+#: includes/class-media-trim-admin.php:238
+msgid "Oldest Upload First"
+msgstr ""
+
+#: includes/class-media-trim-admin.php:244
 msgid "Run a scan to detect unused media."
 msgstr ""
 
-#: includes/class-media-trim-admin.php:231
+#: includes/class-media-trim-admin.php:251
 msgid "No scan data yet"
 msgstr ""
 
-#: includes/class-media-trim-admin.php:232
+#: includes/class-media-trim-admin.php:252
 msgid "Click \"Run Safe Media Scan\" above to discover unused assets."
 msgstr ""
 
-#: includes/class-media-trim-admin.php:245
+#: includes/class-media-trim-admin.php:265
 msgid "Restore to Original Location"
 msgstr ""
 
-#: includes/class-media-trim-admin.php:248
+#: includes/class-media-trim-admin.php:268
 msgid "Delete Permanently"
 msgstr ""
 
-#: includes/class-media-trim-admin.php:263
+#: includes/class-media-trim-admin.php:283
 msgid "Restore"
 msgstr ""
 
-#: includes/class-media-trim-admin.php:264
+#: includes/class-media-trim-admin.php:284
 msgid "Delete"
 msgstr ""
 
-#: includes/class-media-trim-admin.php:271
+#: includes/class-media-trim-admin.php:291
 msgid "Quarantine is empty"
 msgstr ""
 
-#: includes/class-media-trim-admin.php:272
+#: includes/class-media-trim-admin.php:292
 msgid "Any files you move to quarantine will appear here for safe staging."
 msgstr ""
 
@@ -208,30 +244,34 @@ msgid_plural "Quarantined <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/class-media-trim-scanner.php:69
+#: includes/class-media-trim-scanner.php:70
 msgid "Whitelisted by user"
 msgstr ""
 
-#: includes/class-media-trim-scanner.php:81
+#: includes/class-media-trim-scanner.php:83
 msgid "Site Logo / Theme Asset"
 msgstr ""
 
-#: includes/class-media-trim-scanner.php:93
+#: includes/class-media-trim-scanner.php:96
 msgid "Featured Image"
 msgstr ""
 
-#: includes/class-media-trim-scanner.php:105
+#: includes/class-media-trim-scanner.php:109
 msgid "WooCommerce Product Gallery"
 msgstr ""
 
-#: includes/class-media-trim-scanner.php:117
+#: includes/class-media-trim-scanner.php:122
+msgid "Custom Field (ACF / MetaBox)"
+msgstr ""
+
+#: includes/class-media-trim-scanner.php:135
 msgid "Post / Page Content"
 msgstr ""
 
-#: includes/class-media-trim-scanner.php:129
+#: includes/class-media-trim-scanner.php:148
 msgid "Page Builder Layout (Elementor)"
 msgstr ""
 
-#: includes/class-media-trim-scanner.php:140
+#: includes/class-media-trim-scanner.php:160
 msgid "No references found"
 msgstr ""

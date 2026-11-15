@@ -210,11 +210,60 @@
 .mtrim-tab-pane { display: none; }
 .mtrim-tab-pane.active { display: block; }
 
+/* Filter & Sort Controls */
+.mtrim-controls-bar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 0 auto;
+}
+
+.mtrim-filter-group {
+    display: flex;
+    background: #f1f5f9;
+    padding: 3px;
+    border-radius: 8px;
+    gap: 2px;
+}
+
+.mtrim-filter-pill {
+    background: transparent;
+    border: none;
+    border-radius: 6px;
+    padding: 5px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #64748b;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.mtrim-filter-pill:hover {
+    color: #0f172a;
+}
+
+.mtrim-filter-pill.active {
+    background: #ffffff;
+    color: #059669;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.mtrim-select {
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-size: 12px;
+    color: #334155;
+    background: #ffffff;
+}
+
 /* Table Toolbar */
 .mtrim-table-toolbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
     margin-bottom: 18px;
     padding-bottom: 16px;
     border-bottom: 1px solid #f1f5f9;

@@ -13,6 +13,9 @@
         let batchSize = 50;
         let currentOffset = 0;
         let unusedItems = [];
+        let filteredItems = [];
+        let currentFilter = 'all';
+        let currentSort = 'size-desc';
         let reclaimableBytes = 0;
 
         // UI Selectors
@@ -164,6 +167,61 @@
             progressPercent.textContent = '100%';
             progressLabel.textContent = vars.i18n.scanComplete;
             showToast('Scan Completed', 'Found ' + unusedItems.length + ' potentially unused media files.');
+            applyFilterAndSort();
+        }
+
+        // Filter pills listener
+        const filterPills = document.querySelectorAll('.mtrim-filter-pill');
+        filterPills.forEach(function (pill) {
+            pill.addEventListener('click', function () {
+                filterPills.forEach(function (p) { p.classList.remove('active'); });
+                this.classList.add('active');
+                currentFilter = this.getAttribute('data-filter');
+                applyFilterAndSort();
+            });
+        });
+
+        // Sort select listener
+        const sortSelect = document.getElementById('mtrim_sort_select');
+        if (sortSelect) {
+            sortSelect.addEventListener('change', function () {
+                currentSort = this.value;
+                applyFilterAndSort();
+            });
+        }
+
+        function applyFilterAndSort() {
+            // 1. Filter
+            const imageExts = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'avif', 'svg'];
+            const docExts = ['pdf', 'doc', 'docx', 'xls', 'xlsx', 'csv', 'txt', 'zip'];
+            const mediaExts = ['mp4', 'm4v', 'mov', 'wmv', 'avi', 'mp3', 'wav', 'ogg'];
+
+            filteredItems = unusedItems.filter(function (item) {
+                const ext = (item.ext || '').toLowerCase();
+                if (currentFilter === 'images') {
+                    return imageExts.indexOf(ext) !== -1;
+                } else if (currentFilter === 'docs') {
+                    return docExts.indexOf(ext) !== -1;
+                } else if (currentFilter === 'media') {
+                    return mediaExts.indexOf(ext) !== -1;
+                }
+                return true;
+            });
+
+            // 2. Sort
+            filteredItems.sort(function (a, b) {
+                if (currentSort === 'size-desc') {
+                    return (b.filesize || 0) - (a.filesize || 0);
+                } else if (currentSort === 'size-asc') {
+                    return (a.filesize || 0) - (b.filesize || 0);
+                } else if (currentSort === 'id-desc') {
+                    return b.id - a.id;
+                } else if (currentSort === 'id-asc') {
+                    return a.id - b.id;
+                }
+                return 0;
+            });
+
             renderUnusedGrid();
         }
 
@@ -171,21 +229,21 @@
             if (!unusedGrid) return;
             unusedGrid.innerHTML = '';
 
-            if (unusedItems.length === 0) {
-                unusedGrid.innerHTML = '<div class="mtrim-empty-state"><span class="dashicons dashicons-yes-alt" style="color:#10b981;"></span><strong>' + vars.i18n.noUnused + '</strong></div>';
-                selectionSummary.textContent = 'All assets are in use!';
+            if (filteredItems.length === 0) {
+                unusedGrid.innerHTML = '<div class="mtrim-empty-state"><span class="dashicons dashicons-yes-alt" style="color:#10b981;"></span><strong>' + (unusedItems.length === 0 ? vars.i18n.noUnused : 'No items match this filter category.') + '</strong></div>';
+                selectionSummary.textContent = unusedItems.length === 0 ? 'All assets are in use!' : '0 items match category';
                 return;
             }
 
-            selectionSummary.textContent = unusedItems.length + ' unused file(s) found (' + formatBytes(reclaimableBytes) + ')';
+            selectionSummary.textContent = filteredItems.length + ' file(s) displayed (' + formatBytes(reclaimableBytes) + ' total potential)';
 
-            unusedItems.forEach(function (item) {
+            filteredItems.forEach(function (item) {
                 const card = document.createElement('div');
                 card.className = 'mtrim-item-card';
                 card.setAttribute('data-id', item.id);
 
                 const thumbSrc = item.thumb || '';
-                const thumbHtml = thumbSrc ? '<img src="' + thumbSrc + '" class="mtrim-item-thumb" alt="' + item.filename + '"/>' : '<span class="dashicons dashicons-media-default"></span>';
+                const thumbHtml = thumbSrc ? '<img src="' + thumbSrc + '" class="mtrim-item-thumb" alt="' + item.filename + '"/>' : '<span class="dashicons dashicons-media-default" style="font-size:32px;color:#94a3b8;"></span>';
 
                 card.innerHTML =
                     '<div class="mtrim-item-thumb-wrap">' +

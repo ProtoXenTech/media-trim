@@ -52,13 +52,14 @@ class Media_Trim_Scanner {
 	 * Scan an individual attachment to determine if it is currently in use.
 	 *
 	 * @param int $attachment_id Attachment ID.
-	 * @return array Result metadata { 'is_used' => bool, 'reason' => string, 'filesize' => int, 'filename' => string, 'thumb' => string }
+	 * @return array Result metadata { 'is_used' => bool, 'reason' => string, 'filesize' => int, 'filename' => string, 'thumb' => string, 'ext' => string }
 	 */
 	public static function inspect_attachment( $attachment_id ) {
 		$file_path = get_attached_file( $attachment_id );
 		$filename  = $file_path ? wp_basename( $file_path ) : '';
 		$filesize  = ( $file_path && file_exists( $file_path ) ) ? (int) filesize( $file_path ) : 0;
 		$thumb_url = wp_get_attachment_image_url( $attachment_id, 'thumbnail' );
+		$ext       = $filename ? strtolower( pathinfo( $filename, PATHINFO_EXTENSION ) ) : '';
 
 		// 1. Check User Whitelist
 		$whitelist = (array) get_option( 'media_trim_whitelist', array() );
@@ -70,6 +71,7 @@ class Media_Trim_Scanner {
 				'filename' => $filename,
 				'filesize' => $filesize,
 				'thumb'    => $thumb_url,
+				'ext'      => $ext,
 			);
 		}
 
@@ -82,6 +84,7 @@ class Media_Trim_Scanner {
 				'filename' => $filename,
 				'filesize' => $filesize,
 				'thumb'    => $thumb_url,
+				'ext'      => $ext,
 			);
 		}
 
@@ -94,6 +97,7 @@ class Media_Trim_Scanner {
 				'filename' => $filename,
 				'filesize' => $filesize,
 				'thumb'    => $thumb_url,
+				'ext'      => $ext,
 			);
 		}
 
@@ -106,10 +110,24 @@ class Media_Trim_Scanner {
 				'filename' => $filename,
 				'filesize' => $filesize,
 				'thumb'    => $thumb_url,
+				'ext'      => $ext,
 			);
 		}
 
-		// 5. Check Content & Blocks (wp_posts.post_content)
+		// 5. Check ACF / MetaBox & Custom Meta Fields
+		if ( self::is_used_in_custom_fields( $attachment_id ) ) {
+			return array(
+				'id'       => $attachment_id,
+				'is_used'  => true,
+				'reason'   => __( 'Custom Field (ACF / MetaBox)', 'media-trim' ),
+				'filename' => $filename,
+				'filesize' => $filesize,
+				'thumb'    => $thumb_url,
+				'ext'      => $ext,
+			);
+		}
+
+		// 6. Check Content & Blocks (wp_posts.post_content)
 		if ( self::is_used_in_content( $attachment_id, $filename ) ) {
 			return array(
 				'id'       => $attachment_id,
@@ -118,10 +136,11 @@ class Media_Trim_Scanner {
 				'filename' => $filename,
 				'filesize' => $filesize,
 				'thumb'    => $thumb_url,
+				'ext'      => $ext,
 			);
 		}
 
-		// 6. Check Page Builders (Elementor JSON metadata)
+		// 7. Check Page Builders (Elementor JSON metadata)
 		if ( self::is_used_in_page_builders( $attachment_id ) ) {
 			return array(
 				'id'       => $attachment_id,
@@ -130,6 +149,7 @@ class Media_Trim_Scanner {
 				'filename' => $filename,
 				'filesize' => $filesize,
 				'thumb'    => $thumb_url,
+				'ext'      => $ext,
 			);
 		}
 
@@ -141,6 +161,7 @@ class Media_Trim_Scanner {
 			'filename' => $filename,
 			'filesize' => $filesize,
 			'thumb'    => $thumb_url,
+			'ext'      => $ext,
 		);
 	}
 
@@ -211,6 +232,46 @@ class Media_Trim_Scanner {
 			)
 		);
 		return ! empty( $found );
+	}
+
+	/**
+	 * Check if image is used in custom meta fields (ACF / MetaBox / Custom themes).
+	 *
+	 * @param int $id Attachment ID.
+	 * @return bool
+	 */
+	private static function is_used_in_custom_fields( $id ) {
+		global $wpdb;
+
+		// 1. Direct integer match in postmeta (excluding internal core keys)
+		$wp_prefix_like = $wpdb->esc_like( '_wp_' ) . '%';
+		$mtrim_like     = $wpdb->esc_like( '_mtrim' ) . '%';
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+		$direct_match = $wpdb->get_var(
+			$wpdb->prepare(
+				"SELECT post_id FROM {$wpdb->postmeta} WHERE meta_key NOT LIKE %s AND meta_key NOT LIKE %s AND meta_key != '_thumbnail_id' AND meta_value = %s LIMIT 1",
+				$wp_prefix_like,
+				$mtrim_like,
+				(string) $id
+			)
+		);
+
+		if ( ! empty( $direct_match ) ) {
+			return true;
+		}
+
+		// 2. Serialized array match in postmeta (ACF galleries store serialized ID arrays: i:123; or "123")
+		$serialized_like = '%' . $wpdb->esc_like( 'i:' . (string) $id . ';' ) . '%';
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+		$serialized_match = $wpdb->get_var(
+			$wpdb->prepare(
+				"SELECT post_id FROM {$wpdb->postmeta} WHERE meta_key NOT LIKE %s AND meta_value LIKE %s LIMIT 1",
+				$wp_prefix_like,
+				$serialized_like
+			)
+		);
+
+		return ! empty( $serialized_match );
 	}
 
 	/**
