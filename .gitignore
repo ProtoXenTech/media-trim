@@ -1,0 +1,23 @@
+# OS & Editor files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# Environment & local credentials
+.env
+.env.*
+!.env.example
+
+# Logs and temp files
+*.log
+/tmp/
+
+# Dependencies & Build artifacts
+vendor/
+node_modules/
+dist/
+build/
+*.zip

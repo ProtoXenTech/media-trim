@@ -1,0 +1,19 @@
+name: Deploy to WordPress.org SVN
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  tag:
+    name: WordPress.org SVN Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: WordPress Plugin Deploy
+        uses: 10up/action-wordpress-plugin-deploy@stable
+        env:
+          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+          SLUG: media-sweep

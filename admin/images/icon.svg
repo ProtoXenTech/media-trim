@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <!-- Background Gradient: Emerald Deep Tech -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#059669" />
+      <stop offset="50%" stop-color="#047857" />
+      <stop offset="100%" stop-color="#064e3b" />
+    </linearGradient>
+
+    <!-- Shield Glow Gradient -->
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#34d399" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+
+    <!-- Subtle Drop Shadow -->
+    <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#022c22" flood-opacity="0.45" />
+    </filter>
+  </defs>
+
+  <!-- Rounded App Tile -->
+  <rect width="512" height="512" rx="104" fill="url(#bgGrad)" />
+
+  <g filter="url(#shadow)">
+    <!-- Shield / Safety Container -->
+    <path d="M256 76 L396 128 V248 C396 348 256 428 256 428 C256 428 116 348 116 248 V128 Z" 
+          fill="url(#shieldGrad)" 
+          stroke="rgba(255, 255, 255, 0.25)" 
+          stroke-width="6" />
+
+    <!-- Photo Landscape Frame Inside Shield -->
+    <rect x="180" y="170" width="152" height="114" rx="12" fill="#ffffff" />
+    <!-- Sun / Moon in Photo -->
+    <circle cx="218" cy="205" r="14" fill="#fbbf24" />
+    <!-- Mountain landscape -->
+    <polygon points="180,284 225,230 260,268 285,242 332,284" fill="#10b981" />
+
+    <!-- High-Speed Sweep Broom / Dynamic Sparkle -->
+    <circle cx="340" cy="160" r="26" fill="#10b981" stroke="#ffffff" stroke-width="4" />
+    <!-- Checkmark inside node -->
+    <path d="M331 160 L337 166 L349 154" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+
+    <!-- Sparkle rays -->
+    <path d="M375 140 L385 130" stroke="#fcd34d" stroke-width="4" stroke-linecap="round" />
+    <path d="M385 160 L400 160" stroke="#fcd34d" stroke-width="4" stroke-linecap="round" />
+  </g>
+</svg>

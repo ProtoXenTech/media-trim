@@ -1,0 +1,436 @@
+/**
+ * Media Trim Admin Styles
+ *
+ * @package Media_Trim
+ */
+
+.mtrim-wrap {
+    max-width: 1040px;
+    margin: 20px 20px 40px 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+.mtrim-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.mtrim-brand {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.mtrim-logo-badge {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.25);
+}
+
+.mtrim-header h1 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.mtrim-badge {
+    font-size: 11px;
+    font-weight: 600;
+    background: #dcfce7;
+    color: #15803d;
+    padding: 2px 8px;
+    border-radius: 20px;
+    text-transform: uppercase;
+}
+
+.mtrim-subtitle {
+    margin: 3px 0 0;
+    color: #64748b;
+    font-size: 13px;
+}
+
+.mtrim-author-tag {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: #94a3b8;
+}
+
+.mtrim-protoxen-logo {
+    height: 20px;
+    width: auto;
+    display: block;
+}
+
+/* Stats Grid */
+.mtrim-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.mtrim-stat-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 16px 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+    display: flex;
+    flex-direction: column;
+}
+
+.mtrim-stat-label {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #64748b;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+}
+
+.mtrim-stat-value {
+    font-size: 24px;
+    font-weight: 800;
+    color: #0f172a;
+}
+
+.mtrim-stat-value.text-amber { color: #d97706; }
+.mtrim-stat-value.text-emerald { color: #059669; }
+.mtrim-stat-value.text-sky { color: #0284c7; }
+
+.mtrim-stat-desc {
+    font-size: 11px;
+    color: #94a3b8;
+    margin-top: 4px;
+}
+
+/* Card General */
+.mtrim-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+.mtrim-controller-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.mtrim-controller-content h3 {
+    margin: 0 0 6px 0;
+    font-size: 17px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.mtrim-controller-content p {
+    margin: 0;
+    font-size: 13px;
+    color: #64748b;
+}
+
+/* Progress bar */
+.mtrim-progress-wrap {
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid #f1f5f9;
+}
+
+.mtrim-progress-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    margin-bottom: 8px;
+    color: #334155;
+}
+
+.mtrim-progress-bar {
+    height: 10px;
+    background: #e2e8f0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.mtrim-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #10b981 0%, #059669 100%);
+    transition: width 0.3s ease;
+}
+
+/* Tabs */
+.mtrim-tabs-nav {
+    display: flex;
+    gap: 8px;
+    border-bottom: 1px solid #e2e8f0;
+    margin-bottom: 20px;
+}
+
+.mtrim-tab-btn {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    padding: 10px 18px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #64748b;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+}
+
+.mtrim-tab-btn:hover { color: #0f172a; }
+.mtrim-tab-btn.active {
+    color: #059669;
+    border-bottom-color: #059669;
+}
+
+.mtrim-tab-pane { display: none; }
+.mtrim-tab-pane.active { display: block; }
+
+/* Table Toolbar */
+.mtrim-table-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.mtrim-bulk-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.mtrim-table-summary {
+    font-size: 13px;
+    color: #64748b;
+}
+
+/* Unused Media Grid */
+.mtrim-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap: 16px;
+}
+
+.mtrim-item-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.mtrim-item-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+.mtrim-item-card.selected {
+    border-color: #10b981;
+    background: #f0fdf4;
+}
+
+.mtrim-item-thumb-wrap {
+    height: 130px;
+    background: #f8fafc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.mtrim-item-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mtrim-item-checkbox {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    z-index: 2;
+}
+
+.mtrim-item-details {
+    padding: 10px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.mtrim-item-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: #1e293b;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.mtrim-item-meta {
+    font-size: 11px;
+    color: #64748b;
+    display: flex;
+    justify-content: space-between;
+}
+
+.mtrim-item-actions {
+    padding: 6px 12px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #f8fafc;
+}
+
+.mtrim-item-whitelist {
+    font-size: 11px;
+    background: transparent;
+    border: none;
+    color: #64748b;
+    cursor: pointer;
+    padding: 0;
+}
+
+.mtrim-item-whitelist:hover {
+    color: #0284c7;
+    text-decoration: underline;
+}
+
+/* Quarantine List */
+.mtrim-q-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.mtrim-q-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 10px 16px;
+}
+
+.mtrim-check-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: #1e293b;
+}
+
+.mtrim-q-date {
+    font-size: 12px;
+    color: #64748b;
+}
+
+.mtrim-q-actions {
+    display: flex;
+    gap: 8px;
+}
+
+/* Empty State */
+.mtrim-empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 48px 24px;
+    color: #64748b;
+}
+
+.mtrim-empty-state .dashicons {
+    font-size: 44px;
+    width: 44px;
+    height: 44px;
+    color: #cbd5e1;
+    margin-bottom: 12px;
+}
+
+.mtrim-empty-state strong {
+    display: block;
+    font-size: 16px;
+    color: #1e293b;
+    margin-bottom: 4px;
+}
+
+/* Toast */
+.mtrim-toast {
+    position: fixed;
+    top: 48px;
+    right: 32px;
+    z-index: 999999;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: #0f172a;
+    color: #ffffff;
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    box-shadow: 0 20px 30px -10px rgba(15, 23, 42, 0.4);
+    padding: 14px 18px;
+    border-radius: 12px;
+    max-width: 420px;
+}
+
+.mtrim-toast-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: #10b981;
+    border-radius: 50%;
+}
+
+.mtrim-toast-icon .dashicons {
+    color: #ffffff;
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+}
+
+.mtrim-toast-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.mtrim-toast-title {
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.mtrim-toast-sub {
+    font-size: 12px;
+    color: #94a3b8;
+}

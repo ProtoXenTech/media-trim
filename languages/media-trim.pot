@@ -1,0 +1,237 @@
+# Copyright (C) 2026 ProtoXen
+# This file is distributed under the GPL v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Media Trim 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/media-trim\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-11-15T12:23:35+06:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: media-trim\n"
+
+#. Plugin Name of the plugin
+#: media-trim.php
+#: includes/class-media-trim-admin.php:43
+msgid "Media Trim"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: media-trim.php
+msgid "https://protoxen.com/media-trim/"
+msgstr ""
+
+#. Description of the plugin
+#: media-trim.php
+msgid "Ultra-safe, high-performance unused media detector, quarantine manager, and disk space optimizer for WordPress."
+msgstr ""
+
+#. Author of the plugin
+#: media-trim.php
+msgid "ProtoXen"
+msgstr ""
+
+#. Author URI of the plugin
+#: media-trim.php
+msgid "https://protoxen.com/"
+msgstr ""
+
+#: includes/class-media-trim-admin.php:42
+msgid "Media Trim - Unused Media Cleaner"
+msgstr ""
+
+#: includes/class-media-trim-admin.php:58
+msgid "Open Scanner"
+msgstr ""
+
+#: includes/class-media-trim-admin.php:95
+msgid "Scanning media library..."
+msgstr ""
+
+#: includes/class-media-trim-admin.php:96
+msgid "Scan complete!"
+msgstr ""
+
+#: includes/class-media-trim-admin.php:97
+msgid "Great job! No unused media files detected."
+msgstr ""
+
+#: includes/class-media-trim-admin.php:98
+msgid "Move selected files to safe quarantine? They will not be deleted permanently."
+msgstr ""
+
+#: includes/class-media-trim-admin.php:99
+msgid "Permanently delete selected files? This action CANNOT be undone."
+msgstr ""
+
+#: includes/class-media-trim-admin.php:100
+msgid "Restore selected files back to their original upload folders?"
+msgstr ""
+
+#: includes/class-media-trim-admin.php:139
+msgid "Media Trim Studio"
+msgstr ""
+
+#: includes/class-media-trim-admin.php:140
+msgid "Deterministic unused media detection, zero false-positives, and safe quarantine."
+msgstr ""
+
+#: includes/class-media-trim-admin.php:144
+msgid "Crafted by"
+msgstr ""
+
+#: includes/class-media-trim-admin.php:154
+msgid "Total Media Registered"
+msgstr ""
+
+#: includes/class-media-trim-admin.php:156
+msgid "In active WordPress library"
+msgstr ""
+
+#: includes/class-media-trim-admin.php:159
+msgid "Detected Unused Files"
+msgstr ""
+
+#: includes/class-media-trim-admin.php:161
+msgid "Ready for safe review"
+msgstr ""
+
+#: includes/class-media-trim-admin.php:164
+msgid "Reclaimable Disk Space"
+msgstr ""
+
+#: includes/class-media-trim-admin.php:166
+msgid "Estimated hosting savings"
+msgstr ""
+
+#: includes/class-media-trim-admin.php:169
+msgid "Files in Quarantine"
+msgstr ""
+
+#: includes/class-media-trim-admin.php:171
+msgid "Staged safely with 1-click restore"
+msgstr ""
+
+#: includes/class-media-trim-admin.php:179
+msgid "Deep Reference Media Scanner"
+msgstr ""
+
+#: includes/class-media-trim-admin.php:180
+msgid "Scans posts, pages, featured images, WooCommerce galleries, customizer logos, and page builders without crashing your server."
+msgstr ""
+
+#: includes/class-media-trim-admin.php:184
+msgid "Run Safe Media Scan"
+msgstr ""
+
+#: includes/class-media-trim-admin.php:192
+msgid "Initializing scan..."
+msgstr ""
+
+#: includes/class-media-trim-admin.php:205
+msgid "Unused Media"
+msgstr ""
+
+#: includes/class-media-trim-admin.php:209
+msgid "Quarantine Staging"
+msgstr ""
+
+#: includes/class-media-trim-admin.php:218
+#: includes/class-media-trim-admin.php:243
+msgid "Select All"
+msgstr ""
+
+#: includes/class-media-trim-admin.php:220
+msgid "Move Selected to Quarantine"
+msgstr ""
+
+#: includes/class-media-trim-admin.php:224
+msgid "Run a scan to detect unused media."
+msgstr ""
+
+#: includes/class-media-trim-admin.php:231
+msgid "No scan data yet"
+msgstr ""
+
+#: includes/class-media-trim-admin.php:232
+msgid "Click \"Run Safe Media Scan\" above to discover unused assets."
+msgstr ""
+
+#: includes/class-media-trim-admin.php:245
+msgid "Restore to Original Location"
+msgstr ""
+
+#: includes/class-media-trim-admin.php:248
+msgid "Delete Permanently"
+msgstr ""
+
+#: includes/class-media-trim-admin.php:263
+msgid "Restore"
+msgstr ""
+
+#: includes/class-media-trim-admin.php:264
+msgid "Delete"
+msgstr ""
+
+#: includes/class-media-trim-admin.php:271
+msgid "Quarantine is empty"
+msgstr ""
+
+#: includes/class-media-trim-admin.php:272
+msgid "Any files you move to quarantine will appear here for safe staging."
+msgstr ""
+
+#: includes/class-media-trim-ajax.php:46
+msgid "Unauthorized user."
+msgstr ""
+
+#: includes/class-media-trim-ajax.php:103
+#: includes/class-media-trim-ajax.php:131
+#: includes/class-media-trim-ajax.php:159
+msgid "No items specified."
+msgstr ""
+
+#: includes/class-media-trim-quarantine.php:36
+msgctxt "post status"
+msgid "Quarantined"
+msgstr ""
+
+#. translators: %s: number of quarantined items
+#: includes/class-media-trim-quarantine.php:42
+#, php-format
+msgid "Quarantined <span class=\"count\">(%s)</span>"
+msgid_plural "Quarantined <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/class-media-trim-scanner.php:69
+msgid "Whitelisted by user"
+msgstr ""
+
+#: includes/class-media-trim-scanner.php:81
+msgid "Site Logo / Theme Asset"
+msgstr ""
+
+#: includes/class-media-trim-scanner.php:93
+msgid "Featured Image"
+msgstr ""
+
+#: includes/class-media-trim-scanner.php:105
+msgid "WooCommerce Product Gallery"
+msgstr ""
+
+#: includes/class-media-trim-scanner.php:117
+msgid "Post / Page Content"
+msgstr ""
+
+#: includes/class-media-trim-scanner.php:129
+msgid "Page Builder Layout (Elementor)"
+msgstr ""
+
+#: includes/class-media-trim-scanner.php:140
+msgid "No references found"
+msgstr ""
